@@ -1,0 +1,50 @@
+name: Build MarkItDown
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e "../MARKITDOWN/markitdown-main/packages/markitdown[all]" PySide6 pyinstaller
+      - run: pyinstaller MarkItDown.spec --clean --noconfirm
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MarkItDown-Windows
+          path: dist/MarkItDown/
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e "../MARKITDOWN/markitdown-main/packages/markitdown[all]" PySide6 pyinstaller
+      - run: pyinstaller MarkItDown.spec --clean --noconfirm
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MarkItDown-Mac
+          path: dist/MarkItDown/
+
+  build-mac-arm:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e "../MARKITDOWN/markitdown-main/packages/markitdown[all]" PySide6 pyinstaller
+      - run: pyinstaller MarkItDown.spec --clean --noconfirm
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MarkItDown-Mac-ARM
+          path: dist/MarkItDown/
