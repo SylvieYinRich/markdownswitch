@@ -147,8 +147,8 @@ Press `Ctrl+T` or **View → Toggle Theme**
 
 ```bash
 # 克隆仓库 / Clone repo
-git clone https://github.com/your-username/markitdown-desktop.git
-cd markitdown-desktop
+git clone https://github.com/SylvieYinRich/markdownswitch.git
+cd markdownswitch
 
 # 安装依赖 / Install dependencies
 pip install PySide6 markitdown[all] pyinstaller
@@ -164,8 +164,8 @@ dist/MarkItDown/MarkItDown.exe
 
 ```bash
 # 克隆仓库 / Clone repo
-git clone https://github.com/your-username/markitdown-desktop.git
-cd markitdown-desktop
+git clone https://github.com/SylvieYinRich/markdownswitch.git
+cd markdownswitch
 
 # 安装依赖 / Install dependencies
 pip install PySide6 markitdown[all] pyinstaller
@@ -187,7 +187,7 @@ dist/MarkItDown/MarkItDown
 ## 项目结构 / Project Structure
 
 ```
-markitdown-desktop/
+markdownswitch/
 ├── run.py                    # 入口脚本 / Entry point
 ├── MarkItDown.spec           # Windows 构建配置 / Windows build config
 ├── MarkItDown-Mac.spec       # macOS 构建配置 / macOS build config
